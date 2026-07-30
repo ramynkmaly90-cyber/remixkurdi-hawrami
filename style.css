@@ -348,3 +348,38 @@ header {
     background: rgba(255,255,255,0.10) !important;
     border: 1px solid rgba(0,255,170,0.25);
 }
+/* Audio Wave Background */
+
+body::after {
+    content: "";
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 20px;
+    height: 80px;
+    background:
+    repeating-linear-gradient(
+        90deg,
+        rgba(0,255,170,0.18) 0px,
+        rgba(0,255,170,0.18) 3px,
+        transparent 3px,
+        transparent 12px
+    );
+    opacity: 0.25;
+    animation: soundwave 4s linear infinite;
+    pointer-events: none;
+    z-index: -1;
+}
+
+
+@keyframes soundwave {
+
+    0% {
+        transform: translateX(0);
+    }
+
+    100% {
+        transform: translateX(-80px);
+    }
+
+}
