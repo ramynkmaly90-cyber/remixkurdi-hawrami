@@ -1,16 +1,38 @@
-const search = document.querySelector("input");
+document.addEventListener("DOMContentLoaded", function () {
 
-search.addEventListener("keyup", function () {
-    let value = search.value.toLowerCase();
-    let cards = document.querySelectorAll(".song-card");
+    console.log("REMIX KURDI HAWRAMI Website Loaded 🎵");
 
-    cards.forEach(card => {
-        let title = card.querySelector("h2").textContent.toLowerCase();
 
-        if (title.includes(value)) {
-            card.style.display = "block";
-        } else {
-            card.style.display = "none";
-        }
+    const startButton = document.querySelector(".hero button");
+
+
+    if (startButton) {
+
+        startButton.addEventListener("click", function () {
+
+            document.querySelector(".music").scrollIntoView({
+                behavior: "smooth"
+            });
+
+        });
+
+    }
+
+
+
+    const buttons = document.querySelectorAll(".card button");
+
+
+    buttons.forEach(function(button){
+
+        button.addEventListener("click", function(){
+
+            alert("🎧 به زودی پخش آنلاین آهنگ فعال می‌شود!");
+
+        });
+
     });
+
+
+
 });
