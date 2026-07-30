@@ -1,38 +1,45 @@
-document.addEventListener("DOMContentLoaded", function () {
+const songs = [
+    {
+        title: "Rahmat Azari Gorani Hawrami Remix",
+        file: "music/Rahmat Azari Gorani Hawrami Remix.mp3"
+    },
+    {
+        title: "Peshraw Karim Naska Galawizh",
+        file: "music/Peshraw Karim Naska Galawizh.mp3"
+    }
+];
 
-    console.log("REMIX KURDI HAWRAMI Website Loaded 🎵");
+
+let currentSong = 0;
+
+const audio = document.getElementById("audio-player");
+const title = document.getElementById("song-title");
+const button = document.getElementById("play-btn");
 
 
-    const startButton = document.querySelector(".hero button");
+function loadSong() {
+
+    audio.src = songs[currentSong].file;
+    title.innerHTML = songs[currentSong].title;
+
+}
 
 
-    if (startButton) {
+function playPause() {
 
-        startButton.addEventListener("click", function () {
+    if (audio.paused) {
 
-            document.querySelector(".music").scrollIntoView({
-                behavior: "smooth"
-            });
+        audio.play();
+        button.innerHTML = "⏸";
 
-        });
+    } else {
+
+        audio.pause();
+        button.innerHTML = "▶";
 
     }
 
+}
 
 
-    const buttons = document.querySelectorAll(".card button");
-
-
-    buttons.forEach(function(button){
-
-        button.addEventListener("click", function(){
-
-            alert("🎧 به زودی پخش آنلاین آهنگ فعال می‌شود!");
-
-        });
-
-    });
-
-
-
-});
+loadSong();
