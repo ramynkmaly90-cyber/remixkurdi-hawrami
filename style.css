@@ -287,3 +287,34 @@ header p {
 audio {
     margin-top: 10px;
 }
+/* Background Style - REMIX KURDI HAWRAMI */
+
+body {
+    background:
+    radial-gradient(circle at top right, rgba(0,255,153,0.25), transparent 35%),
+    radial-gradient(circle at bottom left, rgba(0,150,255,0.25), transparent 40%),
+    linear-gradient(135deg, #101820, #1b1230, #08151c);
+}
+
+
+header {
+    background:
+    linear-gradient(135deg, rgba(0,255,153,0.15), rgba(0,0,0,0.4));
+}
+
+
+.card {
+    background: rgba(255,255,255,0.08);
+}
+
+
+body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    background-image:
+    radial-gradient(circle, rgba(255,255,255,0.08) 1px, transparent 1px);
+    background-size: 25px 25px;
+    pointer-events: none;
+    z-index: -1;
+}
