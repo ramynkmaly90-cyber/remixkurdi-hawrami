@@ -1,3 +1,4 @@
+alert("پلیر وصل شد");
 const songs = [
     {
         title: "Rahmat Azari Gorani Hawrami Remix",
