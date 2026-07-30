@@ -1,7 +1,7 @@
 const songs = [
 {
 title:"Rahmat Azari - Gorani Hawrami Remix",
-src:"music/Peshraw  Karim Naska Galawizh.mp3"
+src:"music/Peshraw-Karim-Naska-Galawizh.mp3"
 },
 {
 title:"Peshraw Karim - Naska Galawizh",
