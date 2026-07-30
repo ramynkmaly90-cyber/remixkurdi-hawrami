@@ -318,3 +318,15 @@ body::before {
     pointer-events: none;
     z-index: -1;
 }
+body {
+    background: linear-gradient(135deg, #16222a, #3a6073, #1f4037) !important;
+    color: white;
+}
+
+header {
+    background: linear-gradient(135deg, rgba(0,255,153,0.25), rgba(58,96,115,0.8)) !important;
+}
+
+.card {
+    background: rgba(255,255,255,0.12) !important;
+}
