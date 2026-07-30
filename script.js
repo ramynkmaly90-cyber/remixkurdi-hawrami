@@ -1,46 +1,131 @@
-alert("پلیر وصل شد");
 const songs = [
-    {
-        title: "Rahmat Azari Gorani Hawrami Remix",
-        file: "music/Rahmat Azari Gorani Hawrami Remix.mp3"
-    },
-    {
-        title: "Peshraw Karim Naska Galawizh",
-        file: "music/Peshraw Karim Naska Galawizh.mp3"
-    }
+{
+title:"Rahmat Azari - Gorani Hawrami Remix",
+src:"music/Rahmat Azari Gorani Hawrami Remix.mp3"
+},
+{
+title:"Peshraw Karim - Naska Galawizh",
+src:"music/Peshraw Karim Naska Galawizh.mp3"
+}
 ];
 
+const audio=document.getElementById("audio");
+const title=document.getElementById("player-title");
 
-let currentSong = 0;
+const playBtn=document.getElementById("play");
+const nextBtn=document.getElementById("next");
+const prevBtn=document.getElementById("prev");
 
-const audio = document.getElementById("audio-player");
-const title = document.getElementById("song-title");
-const button = document.getElementById("play-btn");
+const progress=document.getElementById("progress");
 
+const playButtons=document.querySelectorAll(".play-song");
 
-function loadSong() {
+let current=0;
 
-    audio.src = songs[currentSong].file;
-    title.innerHTML = songs[currentSong].title;
+function loadSong(index){
 
-}
+current=index;
 
+audio.src=songs[current].src;
 
-function playPause() {
+title.innerText=songs[current].title;
 
-    if (audio.paused) {
-
-        audio.play();
-        button.innerHTML = "⏸";
-
-    } else {
-
-        audio.pause();
-        button.innerHTML = "▶";
-
-    }
+progress.value=0;
 
 }
 
+loadSong(0);
 
-loadSong();
+playButtons.forEach((btn,index)=>{
+
+btn.addEventListener("click",()=>{
+
+loadSong(index);
+
+audio.play();
+
+playBtn.innerHTML="⏸";
+
+});
+
+});
+
+playBtn.addEventListener("click",()=>{
+
+if(audio.paused){
+
+audio.play();
+
+playBtn.innerHTML="⏸";
+
+}else{
+
+audio.pause();
+
+playBtn.innerHTML="▶";
+
+}
+
+});
+
+nextBtn.addEventListener("click",()=>{
+
+current++;
+
+if(current>=songs.length){
+
+current=0;
+
+}
+
+loadSong(current);
+
+audio.play();
+
+playBtn.innerHTML="⏸";
+
+});
+
+prevBtn.addEventListener("click",()=>{
+
+current--;
+
+if(current<0){
+
+current=songs.length-1;
+
+}
+
+loadSong(current);
+
+audio.play();
+
+playBtn.innerHTML="⏸";
+
+});
+
+audio.addEventListener("timeupdate",()=>{
+
+if(audio.duration){
+
+progress.value=(audio.currentTime/audio.duration)*100;
+
+}
+
+});
+
+progress.addEventListener("input",()=>{
+
+if(audio.duration){
+
+audio.currentTime=(progress.value/100)*audio.duration;
+
+}
+
+});
+
+audio.addEventListener("ended",()=>{
+
+nextBtn.click();
+
+});
