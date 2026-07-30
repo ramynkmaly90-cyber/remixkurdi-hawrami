@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://ramynkmaly90-cyber.github.io/remixkurdi-hawrami/sitemap.xml
