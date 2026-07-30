@@ -180,3 +180,49 @@ nav {
     object-fit:cover;
     margin-bottom:15px;
     }
+/* طراحی حرفه‌ای REMIX KURDI HAWRAMI */
+
+body {
+    background: linear-gradient(135deg, #0b0b0b, #1b1b1b);
+}
+
+header {
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+}
+
+header h1 {
+    font-size: 32px;
+    letter-spacing: 1px;
+}
+
+.card {
+    transition: 0.3s;
+    border: 1px solid rgba(255,255,255,0.08);
+    backdrop-filter: blur(10px);
+}
+
+.card:hover {
+    transform: translateY(-8px);
+}
+
+.card h2 {
+    color: #00ff99;
+}
+
+.card p {
+    color: #bbb;
+}
+
+button {
+    font-size: 16px;
+    transition: 0.3s;
+}
+
+button:hover {
+    transform: scale(1.05);
+}
+
+.player {
+    border-top: 1px solid rgba(255,255,255,0.15);
+    box-shadow: 0 -5px 25px rgba(0,0,0,0.5);
+}
