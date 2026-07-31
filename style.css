@@ -1,485 +1,126 @@
-/* ===========================
-   REMIX KURDI HAWRAMI
-   Premium Music Website
-=========================== */
-
 *{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:"Vazirmatn",sans-serif;
 }
 
 body{
-
-    font-family:Tahoma,sans-serif;
-    color:#ffffff;
-
-    background:
-    radial-gradient(circle at top right,#00ffaa22 0%,transparent 35%),
-    radial-gradient(circle at bottom left,#008cff22 0%,transparent 40%),
-    linear-gradient(135deg,#061826,#102040,#062b25);
-
-    min-height:100vh;
+background:linear-gradient(135deg,#7C3AED,#06B6D4);
+min-height:100vh;
+color:#fff;
 }
 
-a{
-
-    text-decoration:none;
-    color:white;
-
-}
-
-.header{
-
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-
-    padding:20px 8%;
-
-    background:rgba(0,0,0,.25);
-
-    backdrop-filter:blur(15px);
-
-    position:sticky;
-
-    top:0;
-
-    z-index:999;
-
-}
-
-.logo-area{
-
-    display:flex;
-
-    align-items:center;
-
-    gap:15px;
-
+.navbar{
+padding:18px 0;
+background:rgba(255,255,255,.12);
+backdrop-filter:blur(15px);
 }
 
 .logo{
-
-    width:70px;
-
-    height:70px;
-
-    border-radius:50%;
-
+font-size:26px;
+font-weight:800;
+color:#fff!important;
+text-decoration:none;
 }
 
-.logo-area h1{
-
-    font-size:24px;
-
+.telegram-btn{
+background:#FACC15;
+color:#222;
+padding:10px 18px;
+border-radius:12px;
+font-weight:bold;
+text-decoration:none;
+transition:.3s;
 }
 
-.logo-area p{
-
-    color:#00ffaa;
-
-    margin-top:5px;
-
-}
-
-nav{
-
-    display:flex;
-
-    gap:30px;
-
-}
-
-nav a{
-
-    transition:.3s;
-
-}
-
-nav a:hover{
-
-    color:#00ffaa;
-
+.telegram-btn:hover{
+transform:scale(1.05);
+background:#FFD84D;
 }
 
 .hero{
-
-    padding:80px 8%;
-
-    text-align:center;
-
+padding:80px 20px;
+text-align:center;
 }
 
-.hero h2{
-
-    font-size:42px;
-
-    margin-bottom:20px;
-
+.hero h1{
+font-size:42px;
+font-weight:800;
+margin-bottom:15px;
 }
 
 .hero p{
-
-    font-size:18px;
-
-    color:#dddddd;
-
-    margin-bottom:30px;
-
+font-size:18px;
+opacity:.9;
+margin-bottom:30px;
 }
 
-.hero-btn{
-
-    background:linear-gradient(135deg,#00ffaa,#008cff);
-
-    color:black;
-
-    border:none;
-
-    padding:15px 35px;
-
-    border-radius:40px;
-
-    font-size:18px;
-
-    cursor:pointer;
-
-    font-weight:bold;
-
-}
-/* ===========================
-   SONGS
-=========================== */
-
-.music-list{
-
-    padding:40px 8%;
-
+.search-box{
+width:100%;
+max-width:600px;
+padding:16px;
+border:none;
+border-radius:16px;
+font-size:18px;
+outline:none;
 }
 
-.music-list h2{
-
-    margin-bottom:30px;
-
-    font-size:32px;
-
-}
-
-.songs{
-
-    display:grid;
-
-    grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
-
-    gap:25px;
-
+.section-title{
+color:#fff;
+font-weight:800;
+margin-bottom:25px;
 }
 
 .song-card{
-
-    background:rgba(255,255,255,.08);
-
-    border:1px solid rgba(255,255,255,.10);
-
-    border-radius:20px;
-
-    overflow:hidden;
-
-    transition:.3s;
-
+background:rgba(255,255,255,.18);
+backdrop-filter:blur(14px);
+border-radius:20px;
+padding:20px;
+transition:.3s;
 }
 
 .song-card:hover{
-
-    transform:translateY(-8px);
-
-    box-shadow:0 15px 40px rgba(0,0,0,.35);
-
+transform:translateY(-8px);
 }
 
-.song-card img{
-
-    width:100%;
-
-    height:220px;
-
-    object-fit:cover;
-
-}
-
-.song-info{
-
-    padding:20px;
-
-}
-
-.song-info h3{
-
-    margin-bottom:8px;
-
-}
-
-.song-info p{
-
-    color:#bbbbbb;
-
-}
-
-.play-song{
-
-    width:55px;
-
-    height:55px;
-
-    margin:20px;
-
-    border:none;
-
-    border-radius:50%;
-
-    cursor:pointer;
-
-    font-size:22px;
-
-    background:linear-gradient(135deg,#00ffaa,#008cff);
-
-}
-
-/* ===========================
-   PLAYER
-=========================== */
-
-.player{
-
-    position:fixed;
-
-    left:0;
-
-    right:0;
-
-    bottom:0;
-
-    display:flex;
-
-    justify-content:space-between;
-
-    align-items:center;
-
-    gap:20px;
-
-    padding:15px 25px;
-
-    background:rgba(8,18,30,.95);
-
-    backdrop-filter:blur(18px);
-
-    border-top:1px solid rgba(255,255,255,.08);
-
-}
-
-.player button{
-
-    width:50px;
-
-    height:50px;
-
-    border:none;
-
-    border-radius:50%;
-
-    cursor:pointer;
-
-    font-size:20px;
-
-    background:linear-gradient(135deg,#00ffaa,#008cff);
-
-}
-
-#progress{
-
-    width:250px;
-
-}
-
-/* ===========================
-   MOBILE
-=========================== */
-
-@media(max-width:768px){
-
-.header{
-
-flex-direction:column;
-
-gap:15px;
-
-}
-
-nav{
-
-gap:15px;
-
-flex-wrap:wrap;
-
-justify-content:center;
-
-}
-
-.hero h2{
-
-font-size:28px;
-
-}
-
-.player{
-
-flex-direction:column;
-
-padding:20px;
-
-}
-
-#progress{
-
+.song-cover{
 width:100%;
-
+border-radius:16px;
+margin-bottom:15px;
 }
 
-    }
-.logo{
-    position: fixed;
-    top: 18px;
-    right: 18px;
-    width: 75px;
-    height: 75px;
-    border-radius: 50%;
-    z-index: 9999;
-    transition: all .35s ease;
-    box-shadow: 0 0 20px rgba(0,255,255,.25);
-.cover-img{
-
-    width:180px;
-
-    height:180px;
-
-    object-fit:cover;
-
-    border-radius:50%;
-
-    display:block;
-
-    margin:20px auto;
-
-    transition:0.4s;
-
-    box-shadow:0 0 25px rgba(0,255,200,.35);
-
+.song-title{
+font-size:20px;
+font-weight:700;
+margin-bottom:8px;
 }
 
-.cover-img.playing{
-
-    animation:spin 8s linear infinite;
-
-    box-shadow:0 0 35px rgba(0,255,200,.7);
-
-}
-.download-btn{
-    display:inline-block;
-    margin-top:12px;
-    padding:8px 20px;
-    border-radius:20px;
-    background:#222;
-    color:white;
-    text-decoration:none;
-    font-size:14px;
-    transition:.3s;
+.song-artist{
+opacity:.9;
+margin-bottom:15px;
 }
 
-.download-btn:hover{
-    transform:scale(1.05);
-}
-.fixed-player{
-
-position:fixed;
-bottom:0;
-left:0;
-width:100%;
-
-background:rgba(10,20,35,.95);
-backdrop-filter:blur(15px);
-
-padding:12px;
-
-display:flex;
-align-items:center;
-justify-content:space-around;
-
-z-index:999;
-
-border-top:1px solid rgba(255,255,255,.1);
-
-}
-
-
-.player-info{
-
-display:flex;
-align-items:center;
-gap:10px;
-
-}
-
-
-.player-info img{
-
-width:50px;
-height:50px;
-
-border-radius:50%;
-
-object-fit:cover;
-
-}
-
-
-.player-info h3{
-
-font-size:14px;
-margin:0;
-
-}
-
-
-.player-info p{
-
-font-size:11px;
-color:#aaa;
-
-}
-
-
-
-.player-buttons button{
-
-width:45px;
-height:45px;
-
-border-radius:50%;
+.btn-play{
+background:#06B6D4;
+color:white;
 border:none;
-
-background:#00d9ff;
-
-font-size:18px;
-
-margin:3px;
-
+padding:10px 18px;
+border-radius:12px;
+margin-left:10px;
 }
 
+.btn-download{
+background:#FACC15;
+color:#222;
+border:none;
+padding:10px 18px;
+border-radius:12px;
+}
 
-
-#progress{
-
-width:90px;
-
+footer{
+margin-top:70px;
+padding:30px;
+text-align:center;
+background:rgba(255,255,255,.12);
 }
