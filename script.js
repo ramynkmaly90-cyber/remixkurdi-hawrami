@@ -1,173 +1,46 @@
 const songs = [
 {
-title:"Rahmat Azari - Gorani Hawrami Remix",
-src:"music/Rahmat Azari Gorani Hawrami Remix.mp3"
+title: "Rahmat Azari - Gorani Hawrami Remix",
+artist: "Rahmat Azari",
+cover: "covers/cover1.jpg",
+audio: "music/Rahmat Azari Gorani Hawrami Remix.mp3"
 },
 {
-title:"Peshraw Karim - Naska Galawizh",
-src:"music/Peshraw-Karim-Naska-Galawizh.mp3"
+title: "Peshraw Karim - Naska Galawizh",
+artist: "Peshraw Karim",
+cover: "covers/cover2.jpg",
+audio: "music/Peshraw-Karim-Naska-Galawizh.mp3"
 }
 ];
 
-const audio=document.getElementById("audio");
-const title=document.getElementById("player-title");
+const songsContainer = document.getElementById("songs");
 
-const playBtn=document.getElementById("play");
-const nextBtn=document.getElementById("next");
-const prevBtn=document.getElementById("prev");
+songs.forEach(song => {
 
-const progress=document.getElementById("progress");
+songsContainer.innerHTML += `
+<div class="col-lg-4 col-md-6">
 
-const playButtons=document.querySelectorAll(".play-song");
+<div class="song-card">
 
-let current=0;
+<img src="${song.cover}" class="song-cover">
 
-function loadSong(index){
+<h3 class="song-title">${song.title}</h3>
 
-current=index;
+<p class="song-artist">${song.artist}</p>
 
-audio.src=songs[current].src;
+<audio controls style="width:100%;">
+<source src="${song.audio}" type="audio/mpeg">
+</audio>
 
-title.innerText=songs[current].title;
+<br><br>
 
-progress.value=0;
+<a href="${song.audio}" download class="btn-download">
+⬇ دانلود
+</a>
 
-}
+</div>
 
-loadSong(0);
-
-playButtons.forEach((btn,index)=>{
-
-btn.addEventListener("click",()=>{
-
-loadSong(index);
-
-audio.play();
-
-playBtn.innerHTML="⏸";
-
-});
-
-});
-
-playBtn.addEventListener("click",()=>{
-
-if(audio.paused){
-
-audio.play();
-
-playBtn.innerHTML="⏸";
-
-}else{
-
-audio.pause();
-
-playBtn.innerHTML="▶";
-
-}
-
-});
-
-nextBtn.addEventListener("click",()=>{
-
-current++;
-
-if(current>=songs.length){
-
-current=0;
-
-}
-
-loadSong(current);
-
-audio.play();
-
-playBtn.innerHTML="⏸";
-
-});
-
-prevBtn.addEventListener("click",()=>{
-
-current--;
-
-if(current<0){
-
-current=songs.length-1;
-
-}
-
-loadSong(current);
-
-audio.play();
-
-playBtn.innerHTML="⏸";
-
-});
-
-audio.addEventListener("timeupdate",()=>{
-
-if(audio.duration){
-
-progress.value=(audio.currentTime/audio.duration)*100;
-
-}
-
-});
-
-progress.addEventListener("input",()=>{
-
-if(audio.duration){
-
-audio.currentTime=(progress.value/100)*audio.duration;
-
-}
-
-});
-
-audio.addEventListener("ended",()=>{
-
-nextBtn.click();
-
-});
-window.addEventListener("scroll", () => {
-
-    const logo = document.querySelector(".logo");
-
-    if(window.scrollY > 80){
-
-        logo.style.width = "55px";
-        logo.style.height = "55px";
-
-    }else{
-
-        logo.style.width = "75px";
-        logo.style.height = "75px";
-
-    }
-
-});
-const covers = document.querySelectorAll(".cover-img");
-
-audio.addEventListener("play", () => {
-
-    covers.forEach(cover => {
-        cover.classList.add("playing");
-    });
-
-});
-
-audio.addEventListener("pause", () => {
-
-    covers.forEach(cover => {
-        cover.classList.remove("playing");
-    });
-
-});
-
-audio.addEventListener("ended", () => {
-
-    covers.forEach(cover => {
-        cover.classList.remove("playing");
-    });
+</div>
+`;
 
 });
