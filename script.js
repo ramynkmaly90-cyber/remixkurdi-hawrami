@@ -129,3 +129,20 @@ audio.addEventListener("ended",()=>{
 nextBtn.click();
 
 });
+window.addEventListener("scroll", () => {
+
+    const logo = document.querySelector(".logo");
+
+    if(window.scrollY > 80){
+
+        logo.style.width = "55px";
+        logo.style.height = "55px";
+
+    }else{
+
+        logo.style.width = "75px";
+        logo.style.height = "75px";
+
+    }
+
+});
