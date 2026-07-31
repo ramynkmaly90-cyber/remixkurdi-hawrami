@@ -1,1 +1,24 @@
-
+[
+  {
+    "id": 1,
+    "title": "Rahmat Azari - Gorani Hawrami Remix",
+    "artist": "Rahmat Azari",
+    "album": "Single",
+    "category": "هورامی",
+    "duration": "04:12",
+    "date": "2026-07-31",
+    "cover": "covers/cover1.jpg",
+    "audio": "music/Rahmat Azari Gorani Hawrami Remix.mp3"
+  },
+  {
+    "id": 2,
+    "title": "Peshraw Karim - Naska Galawizh",
+    "artist": "Peshraw Karim",
+    "album": "Single",
+    "category": "هورامی",
+    "duration": "03:48",
+    "date": "2026-07-31",
+    "cover": "covers/cover2.jpg",
+    "audio": "music/Peshraw-Karim-Naska-Galawizh.mp3"
+  }
+]
