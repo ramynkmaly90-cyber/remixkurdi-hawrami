@@ -146,3 +146,28 @@ window.addEventListener("scroll", () => {
     }
 
 });
+const covers = document.querySelectorAll(".cover-img");
+
+audio.addEventListener("play", () => {
+
+    covers.forEach(cover => {
+        cover.classList.add("playing");
+    });
+
+});
+
+audio.addEventListener("pause", () => {
+
+    covers.forEach(cover => {
+        cover.classList.remove("playing");
+    });
+
+});
+
+audio.addEventListener("ended", () => {
+
+    covers.forEach(cover => {
+        cover.classList.remove("playing");
+    });
+
+});
