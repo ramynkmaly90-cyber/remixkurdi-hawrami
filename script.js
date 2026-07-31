@@ -1,46 +1,136 @@
-const songs = [
-{
-title: "Rahmat Azari - Gorani Hawrami Remix",
-artist: "Rahmat Azari",
-cover: "covers/cover1.jpg",
-audio: "music/Rahmat Azari Gorani Hawrami Remix.mp3"
-},
-{
-title: "Peshraw Karim - Naska Galawizh",
-artist: "Peshraw Karim",
-cover: "covers/cover2.jpg",
-audio: "music/Peshraw-Karim-Naska-Galawizh.mp3"
-}
-];
+// REMIX KURDI HAWRAMI v1.0
 
 const songsContainer = document.getElementById("songs");
+const searchInput = document.getElementById("search");
 
-songs.forEach(song => {
+let songs = [];
 
-songsContainer.innerHTML += `
-<div class="col-lg-4 col-md-6">
+async function loadSongs() {
+    const response = await fetch("songs.json");
+    songs = await response.json();
 
-<div class="song-card">
+    showSongs(songs);
+}
 
-<img src="${song.cover}" class="song-cover">
+function showSongs(list) {
 
-<h3 class="song-title">${song.title}</h3>
+    songsContainer.innerHTML = "";
 
-<p class="song-artist">${song.artist}</p>
+    list.forEach(song => {
 
-<audio controls style="width:100%;">
-<source src="${song.audio}" type="audio/mpeg">
-</audio>
+        songsContainer.innerHTML += `
 
-<br><br>
+        <div class="col-lg-4 col-md-6">
 
-<a href="${song.audio}" download class="btn-download">
-⬇ دانلود
-</a>
+            <div class="song-card">
 
-</div>
+                <img
+                src="${song.cover}"
+                class="song-cover"
+                alt="${song.title}">
 
-</div>
-`;
+                <h3 class="song-title">
+                ${song.title}
+                </h3>
+
+                <p class="song-artist">
+                👤 ${song.artist}
+                </p>
+
+                <p>
+                💿 ${song.album}
+                </p>
+
+                <p>
+                🏷️ ${song.category}
+                </p>
+
+                <p>
+                ⏱️ ${song.duration}
+                </p>
+
+                <audio controls style="width:100%;margin:15px 0;">
+
+                    <source
+                    src="${song.audio}"
+                    type="audio/mpeg">
+
+                </audio>
+
+                <div class="d-flex justify-content-between">
+
+                    <a
+                    href="${song.audio}"
+                    download
+                    class="btn-download">
+
+                    ⬇ دانلود
+
+                    </a>
+
+                    <button
+                    class="btn-play"
+                    onclick="alert('پلیر اختصاصی در نسخه بعدی اضافه می‌شود')">
+
+                    ▶ پخش
+
+                    </button>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        `;
+
+    });
+
+}
+// جستجوی زنده
+
+searchInput.addEventListener("input", () => {
+
+    const value = searchInput.value.toLowerCase().trim();
+
+    const filteredSongs = songs.filter(song => {
+
+        return (
+            song.title.toLowerCase().includes(value) ||
+            song.artist.toLowerCase().includes(value) ||
+            song.category.toLowerCase().includes(value)
+        );
+
+    });
+
+    showSongs(filteredSongs);
+
+});
+
+
+// بارگذاری اطلاعات
+
+loadSongs();
+
+
+// اگر فایل پیدا نشد
+
+window.addEventListener("error", () => {
+
+    songsContainer.innerHTML = `
+
+    <div class="col-12 text-center">
+
+        <h2>
+        ⚠️ خطا در بارگذاری آهنگ‌ها
+        </h2>
+
+        <p>
+        فایل songs.json یا مسیر فایل‌ها را بررسی کنید.
+        </p>
+
+    </div>
+
+    `;
 
 });
