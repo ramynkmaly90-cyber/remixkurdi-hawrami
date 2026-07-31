@@ -357,16 +357,23 @@ width:100%;
     z-index: 9999;
     transition: all .35s ease;
     box-shadow: 0 0 20px rgba(0,255,255,.25);
-}
 .cover-img{
 
-    width:100%;
+    width:180px;
 
-    height:220px;
+    height:180px;
 
     object-fit:cover;
 
+    border-radius:50%;
+
+    display:block;
+
+    margin:20px auto;
+
     transition:0.4s;
+
+    box-shadow:0 0 25px rgba(0,255,200,.35);
 
 }
 
@@ -374,20 +381,6 @@ width:100%;
 
     animation:spin 8s linear infinite;
 
+    box-shadow:0 0 35px rgba(0,255,200,.7);
+
 }
-
-@keyframes spin{
-
-    from{
-
-        transform:rotate(0deg);
-
-    }
-
-    to{
-
-        transform:rotate(360deg);
-
-    }
-
-   }
