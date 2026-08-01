@@ -163,30 +163,47 @@ function renderFavorites(){
         favoritesList.innerHTML = "هنوز آهنگی اضافه نشده...";
 
         return;
+
     }
 
 
     favoritesList.innerHTML = "";
 
 
-    favorites.forEach((song,index)=>{
+    favorites.forEach(id => {
 
-        favoritesList.innerHTML += `
 
-        <div class="favorite-song">
+        const song = songs.find(item => item.id === id);
 
-            🎵 ${song.title}
 
-            <button onclick="playFavorite(${index})">
-            ▶
-            </button>
+        if(song){
 
-        </div>
 
-        `;
+            favoritesList.innerHTML += `
+
+            <div class="favorite-song">
+
+                <img src="${song.cover}">
+
+                <span>
+                ${song.title}
+                </span>
+
+
+                <button onclick="playSong(${song.id})">
+                ▶
+                </button>
+
+
+            </div>
+
+            `;
+
+
+        }
+
 
     });
 
-}
 
-renderFavorites();
+}
