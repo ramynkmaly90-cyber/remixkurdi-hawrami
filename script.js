@@ -132,3 +132,22 @@ window.addEventListener("error", () => {
     `;
 
 });
+let favorites = JSON.parse(localStorage.getItem("favorites")) || [];
+
+function toggleFavorite(id){
+
+    if(favorites.includes(id)){
+
+        favorites = favorites.filter(item => item !== id);
+
+    }else{
+
+        favorites.push(id);
+
+    }
+
+    localStorage.setItem("favorites", JSON.stringify(favorites));
+
+    showSongs(songs);
+
+}
