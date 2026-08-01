@@ -49,14 +49,6 @@ function showSongs(list) {
                 ⏱️ ${song.duration}
                 </p>
 
-                <audio controls style="width:100%;margin:15px 0;">
-
-                    <source
-                    src="${song.audio}"
-                    type="audio/mpeg">
-
-                </audio>
-
                 <div class="d-flex justify-content-between">
 
                     <a
@@ -69,12 +61,12 @@ function showSongs(list) {
                     </a>
 
                     <button
-                    class="btn-play"
-                    onclick="alert('پلیر اختصاصی در نسخه بعدی اضافه می‌شود')">
+class="btn-play"
+onclick="playFromCard(${song.id})">
 
-                    ▶ پخش
+▶ پخش
 
-                    </button>
+</button>
 
                 </div>
 
