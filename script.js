@@ -59,7 +59,13 @@ function showSongs(list) {
                     ⬇ دانلود
 
                     </a>
+<button
+class="btn-favorite"
+onclick="toggleFavorite(${song.id})">
 
+${favorites.includes(song.id) ? "❤️" : "🤍"}
+
+</button>
                     <button
 class="btn-play"
 onclick="playFromCard(${song.id})">
