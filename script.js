@@ -2,7 +2,9 @@
 
 const songsContainer = document.getElementById("songs");
 const searchInput = document.getElementById("search");
+const favoritesList = document.getElementById("favorites-list");
 
+let favorites = JSON.parse(localStorage.getItem("favorites")) || [];
 let songs = [];
 
 async function loadSongs() {
