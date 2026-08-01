@@ -74,3 +74,16 @@ window.addEventListener("load",()=>{
     }
 
 });
+function playFromCard(id){
+
+    const song = songs.find(item => item.id == id);
+
+    if(!song) return;
+
+    currentSong = songs.findIndex(item => item.id == id);
+
+    loadPlayer(song);
+
+    playSong();
+
+}
