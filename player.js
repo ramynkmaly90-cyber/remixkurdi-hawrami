@@ -87,3 +87,35 @@ function playFromCard(id){
     playSong();
 
 }
+player.next.addEventListener("click",()=>{
+
+    currentSong++;
+
+    if(currentSong>=songs.length){
+
+        currentSong=0;
+
+    }
+
+    loadPlayer(songs[currentSong]);
+
+    playSong();
+
+});
+
+
+player.prev.addEventListener("click",()=>{
+
+    currentSong--;
+
+    if(currentSong<0){
+
+        currentSong=songs.length-1;
+
+    }
+
+    loadPlayer(songs[currentSong]);
+
+    playSong();
+
+});
