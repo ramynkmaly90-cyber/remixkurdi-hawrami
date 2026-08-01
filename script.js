@@ -145,9 +145,12 @@ function toggleFavorite(id){
     }else{
 
         favorites.push(id);
-
+        
     }
+localStorage.setItem("favorites", JSON.stringify(favorites));
 
+renderFavorites();
+}
     localStorage.setItem("favorites", JSON.stringify(favorites));
 
     showSongs(songs);
