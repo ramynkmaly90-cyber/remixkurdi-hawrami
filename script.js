@@ -153,3 +153,37 @@ function toggleFavorite(id){
     showSongs(songs);
 
 }
+function renderFavorites(){
+
+    if(favorites.length === 0){
+
+        favoritesList.innerHTML = "هنوز آهنگی اضافه نشده...";
+
+        return;
+    }
+
+
+    favoritesList.innerHTML = "";
+
+
+    favorites.forEach((song,index)=>{
+
+        favoritesList.innerHTML += `
+
+        <div class="favorite-song">
+
+            🎵 ${song.title}
+
+            <button onclick="playFavorite(${index})">
+            ▶
+            </button>
+
+        </div>
+
+        `;
+
+    });
+
+}
+
+renderFavorites();
